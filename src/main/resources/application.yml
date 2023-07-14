@@ -1,9 +1,17 @@
 spring:
+  profiles:
+    include: oauth
   jpa:
     show_sql: true
+    hibernate:
+      ddl-auto: update
   h2:
     console:
       enabled: true # Spring boot? ??? H2 ??????? ??? ???? ?? ??
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
+server:
+  servlet:
+    encoding:
+      force-response: true
