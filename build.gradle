@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.1'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '2.7.13'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'kr.ac.phdljr'
@@ -24,17 +24,19 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.1'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     // https://mvnrepository.com/artifact/com.h2database/h2
     implementation 'com.h2database:h2:2.2.220'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     // 클라이언트 입장에서 소셜 기능 구현 시 필요한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    // https://mvnrepository.com/artifact/org.springframework.session/spring-session-jdbc
+    implementation 'org.springframework.session:spring-session-jdbc'
 }
 
 tasks.named('test') {

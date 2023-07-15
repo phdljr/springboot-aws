@@ -7,10 +7,14 @@ spring:
       ddl-auto: update
   h2:
     console:
-      enabled: true # Spring boot? ??? H2 ??????? ??? ???? ?? ??
+      enabled: true
+      settings:
+        web-allow-others: true
   datasource:
-    url: jdbc:h2:mem:testdb
+    generate-unique-name: false
     username: sa
+  session:
+    store-type: jdbc
 server:
   servlet:
     encoding:

@@ -1,6 +1,6 @@
 package kr.ac.phdljr.sbaws.web;
 
-import jakarta.servlet.http.HttpSession;
+import kr.ac.phdljr.sbaws.config.auth.LoginUser;
 import kr.ac.phdljr.sbaws.config.auth.dto.SessionUser;
 import kr.ac.phdljr.sbaws.service.posts.PostsService;
 import kr.ac.phdljr.sbaws.web.dto.PostsResponseDto;
@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser)httpSession.getAttribute("user");
-        if(user != null){
+        if (user != null) {
             model.addAttribute("userName", user.getName());
         }
         return "index";
@@ -34,7 +32,7 @@ public class IndexController {
     }
 
     @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model){
+    public String postsUpdate(@PathVariable Long id, Model model) {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
         return "posts-update";

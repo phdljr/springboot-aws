@@ -1,6 +1,5 @@
 package kr.ac.phdljr.sbaws.config.auth;
 
-import jakarta.servlet.http.HttpSession;
 import kr.ac.phdljr.sbaws.config.auth.dto.SessionUser;
 import kr.ac.phdljr.sbaws.domain.user.User;
 import kr.ac.phdljr.sbaws.domain.user.UserRepository;
@@ -14,6 +13,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 
 
@@ -23,6 +23,7 @@ import java.util.Collections;
 @RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+
     private final UserRepository userRepository;
     private final HttpSession httpSession;
 
@@ -54,7 +55,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 attributes.getNameAttributeKey());
     }
 
-    private User saveOrUpdate(OAuthAttributes attributes){
+    private User saveOrUpdate(OAuthAttributes attributes) {
         User user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());

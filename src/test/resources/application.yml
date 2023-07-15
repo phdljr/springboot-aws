@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    show_sql: true
+  h2:
+    console:
+      enabled: true
+  session:
+    store-type: jdbc
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test
+            client-secret: test
+            scope:
+              - profile
+              - email
+server:
+  servlet:
+    encoding:
+      force-response: true

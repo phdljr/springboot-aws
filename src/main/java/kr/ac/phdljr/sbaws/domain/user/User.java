@@ -1,10 +1,11 @@
 package kr.ac.phdljr.sbaws.domain.user;
 
-import jakarta.persistence.*;
 import kr.ac.phdljr.sbaws.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
