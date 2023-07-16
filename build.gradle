@@ -35,7 +35,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     // https://mvnrepository.com/artifact/com.h2database/h2
-    implementation 'com.h2database:h2:2.2.220'
+    implementation 'com.h2database:h2'
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     // 클라이언트 입장에서 소셜 기능 구현 시 필요한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
