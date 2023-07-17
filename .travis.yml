@@ -22,3 +22,20 @@ notifications:
   email:
     recipients:
       - phdljr@naver.com
+
+before_deploy:
+  - zip -r sbaws *
+  - mkdir -p deploy
+  - mv sbaws.zip deploy/sbaws.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: sbaws-webservice-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy # 해당 위치의 파일들만 S3로 전송
+    wait-until-deployed: true
