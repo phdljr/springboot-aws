@@ -1,8 +1,8 @@
 spring:
-  profiles:
-    include:
-      - real
-      - oauth
+  config:
+    location:
+      - classpath:application-real.yml
+      - classpath:application-oauth.yml
   jpa:
     show_sql: true
   h2:
