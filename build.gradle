@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'kr.ac.phdljr'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.1-SNAPSHOT'
 
 jar {
     enabled = false
