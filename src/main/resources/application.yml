@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: oauth
+    include: real
   jpa:
     show_sql: true
   h2:
