@@ -17,12 +17,6 @@ before_install:
 
 script: "./gradlew clean build"
 
-# CI 실행 완료 시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - phdljr@naver.com
-
 before_deploy:
   - zip -r sbaws *
   - mkdir -p deploy
@@ -32,10 +26,26 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-
     bucket: sbaws-webservice-build
     region: ap-northeast-2
     skip_cleanup: true
     acl: private
     local_dir: deploy # 해당 위치의 파일들만 S3로 전송
     wait-until-deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: sbaws-webservice-build
+    key: sbaws.zip
+    build-type: zip
+    application: sbaws-webservice
+    deployment_group: sbaws-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+
+# CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - phdljr@naver.com
