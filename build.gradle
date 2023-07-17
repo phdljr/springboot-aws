@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'kr.ac.phdljr'
-version = '1.0.2-SNAPSHOT'
+version = '1.0.2-SNAPSHOT-' + new Date().format("yyyyMMddHHmmss")
 
 jar {
     enabled = false
