@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/", "/css/**", "/images/**", "/js/**", "/profile").permitAll()
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                .antMatchers("/api/v1/**").hasRole(Role.USER.getKey())
                 // 설정된 값 이외의 나머지 URL은 인증된 사용자들에게만 허용(로그인한 사람)
                 .anyRequest().authenticated()
                 .and()
