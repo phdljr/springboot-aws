@@ -1,9 +1,9 @@
 server:
   port: 8082
 spring:
-  config:
-    location:
-      - classpath:application-oauth.yml
-      - classpath:application-real-db.yml
+  profiles:
+    include:
+      - oauth
+      - real-db
   session:
     store-type: jdbc
