@@ -38,7 +38,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: sbaws-webservice-build
     key: sbaws.zip
-    build-type: zip
+    bundle_type: zip
     application: sbaws-webservice
     deployment_group: sbaws-webservice-group
     region: ap-northeast-2
