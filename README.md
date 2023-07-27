@@ -16,3 +16,6 @@
 
 ## 시스템 구조도
 ![image](https://github.com/phdljr/springboot-aws/assets/68233342/144b2647-5e5b-40ea-9508-1120a788bd8a)
+
+## 노션 정리
+https://morning-fairy-cd2.notion.site/AWS-1a97a3501f684c8a80dcc384bda11c60?pvs=4
